@@ -1,5 +1,4 @@
 ﻿using System;
-using fizbuz;
 using FizzBuzz.Console;
 using FluentAssertions;
 using Moq;
@@ -15,14 +14,14 @@ namespace FizzBuzz.Tests
         [SetUp]
         public void TestInitialize()
         {
-            _out = new Mock<IFizzBuzzOutput>(); 
+            _out = new Mock<IFizzBuzzOutput>();
         }
 
         [Test]
         public void Constructor_Valid_Creates()
         {
             //Arrange
-            
+
 
             //Act
             var actual = new FizzBuzzProcessor(1, 100, SetupFizzBuzz(), _out.Object);
@@ -35,9 +34,10 @@ namespace FizzBuzz.Tests
         public void Constructor_EndLessThanStart_Throws()
         {
             //Arrange
-            
+
 
             //Act
+            // ReSharper disable once ObjectCreationAsStatement
             Action actual = () => new FizzBuzzProcessor(2, 1, SetupFizzBuzz(), _out.Object);
 
             //Assert
@@ -49,30 +49,30 @@ namespace FizzBuzz.Tests
         public void Constructor_NullFizzBuzz_Throws()
         {
             //Arrange
-            
+
 
             //Act
+            // ReSharper disable once ObjectCreationAsStatement
             Action actual = () => new FizzBuzzProcessor(1, 2, null, _out.Object);
 
             //Assert
             actual.ShouldThrow<ArgumentNullException>()
                 .And.ParamName.Should().Be("fizzBuzz");
-
         }
 
         [Test]
         public void Constructor_NullOuput_Throws()
         {
             //Arrange
-            
+
 
             //Act
-            Action actual = () => new FizzBuzzProcessor(1,2,SetupFizzBuzz(), null);
+            // ReSharper disable once ObjectCreationAsStatement
+            Action actual = () => new FizzBuzzProcessor(1, 2, SetupFizzBuzz(), null);
 
             //Assert
             actual.ShouldThrow<ArgumentNullException>()
                 .And.ParamName.Should().Be("output");
-
         }
 
         [Test]
@@ -101,6 +101,5 @@ namespace FizzBuzz.Tests
         {
             return new FizzBuzzInput(divisor, display);
         }
-
     }
 }

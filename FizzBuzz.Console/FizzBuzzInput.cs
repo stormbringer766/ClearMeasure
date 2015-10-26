@@ -18,6 +18,11 @@ namespace FizzBuzz.Console
             _display = display;
         }
 
+        public bool IsMatch(int number)
+        {
+            return number%_divisor == 0;
+        }
+
         public int Divisor
         {
             get { return _divisor; }

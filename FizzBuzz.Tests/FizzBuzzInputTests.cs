@@ -12,7 +12,7 @@ namespace FizzBuzz.Tests
         public void Constructor_Valid_Creates()
         {
             //Arrange
-            
+
 
             //Act
             var actual = new FizzBuzzInput(1, "display");
@@ -27,9 +27,10 @@ namespace FizzBuzz.Tests
         public void Constructor_Zero_Throws()
         {
             //Arrange
-            
+
 
             //Act
+            // ReSharper disable once ObjectCreationAsStatement
             Action actual = () => new FizzBuzzInput(0, "display");
 
             //Assert
@@ -43,6 +44,7 @@ namespace FizzBuzz.Tests
 
 
             //Act
+            // ReSharper disable once ObjectCreationAsStatement
             Action actual = () => new FizzBuzzInput(1, "");
 
             //Assert

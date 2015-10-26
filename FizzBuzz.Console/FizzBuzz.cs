@@ -1,5 +1,4 @@
 ﻿using System;
-using fizbuz;
 
 namespace FizzBuzz.Console
 {
@@ -26,19 +25,17 @@ namespace FizzBuzz.Console
         public string Process(int number)
         {
             var fizbuzz = number%_commutative == 0;
-            var fiz = number % _fizz.Divisor == 0;
-            var buzz = number % _buzz.Divisor == 0;
             var answer = number.ToString();
 
             if (fizbuzz)
             {
                 answer = _commutativeValue;
             }
-            else if (fiz)
+            else if (_fizz.IsMatch(number))
             {
                 answer = _fizz.Display;
             }
-            else if (buzz)
+            else if (_buzz.IsMatch(number))
             {
                 answer = _buzz.Display;
             }

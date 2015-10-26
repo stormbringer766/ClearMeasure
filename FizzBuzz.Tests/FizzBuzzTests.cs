@@ -50,15 +50,15 @@ namespace FizzBuzz.Tests
         public void Constructor_NullFizz_Throws()
         {
             //Arrange
-            
+
 
             //Act
+            // ReSharper disable once ObjectCreationAsStatement
             Action actual = () => new Console.FizzBuzz(null, new FizzBuzzInput(1, "Display"));
 
             //Assert
             actual.ShouldThrow<ArgumentNullException>()
                 .And.ParamName.Should().Be("fizz");
-
         }
 
         [Test]
@@ -68,6 +68,7 @@ namespace FizzBuzz.Tests
 
 
             //Act
+            // ReSharper disable once ObjectCreationAsStatement
             Action actual = () => new Console.FizzBuzz(new FizzBuzzInput(1, "Display"), null);
 
             //Assert

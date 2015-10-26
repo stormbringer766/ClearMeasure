@@ -1,6 +1,4 @@
-﻿using fizbuz;
-
-namespace FizzBuzz.Console
+﻿namespace FizzBuzz.Console
 {
     public class FizzBuzzConsole : IFizzBuzzOutput
     {

@@ -1,16 +1,15 @@
 ﻿using System;
-using FizzBuzz.Console;
 
-namespace fizbuz
+namespace FizzBuzz.Console
 {
     public class FizzBuzzProcessor
     {
         private readonly int _start;
         private readonly int _end;
-        private readonly FizzBuzz.Console.FizzBuzz _fizzBuzz;
+        private readonly FizzBuzz _fizzBuzz;
         private readonly IFizzBuzzOutput _output;
 
-        public FizzBuzzProcessor(int start, int end, FizzBuzz.Console.FizzBuzz fizzBuzz, IFizzBuzzOutput output)
+        public FizzBuzzProcessor(int start, int end, FizzBuzz fizzBuzz, IFizzBuzzOutput output)
         {
             if (end < start)
                 throw new ArgumentOutOfRangeException("end");

@@ -1,10 +1,8 @@
-﻿using fizbuz;
-
-namespace FizzBuzz.Console
+﻿namespace FizzBuzz.Console
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var fizz = new FizzBuzzInput(3, "Fizz");
             var buzz = new FizzBuzzInput(5, "Buzz");
@@ -12,6 +10,8 @@ namespace FizzBuzz.Console
 
             var processor = new FizzBuzzProcessor(1, 100, fizzBuzz, new FizzBuzzConsole());
             processor.Run();
+
+            System.Console.ReadLine();
         }
     }
 }
