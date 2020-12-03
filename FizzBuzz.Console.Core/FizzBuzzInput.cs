@@ -10,9 +10,9 @@ namespace FizzBuzz.Console
         public FizzBuzzInput(int divisor, string display)
         {
             if (divisor == 0)
-                throw new ArgumentOutOfRangeException("divisor");
+                throw new ArgumentOutOfRangeException(nameof(divisor));
             if (String.IsNullOrWhiteSpace(display))
-                throw new ArgumentNullException("display");
+                throw new ArgumentNullException(nameof(display));
 
             _divisor = divisor;
             _display = display;
@@ -23,14 +23,8 @@ namespace FizzBuzz.Console
             return number%_divisor == 0;
         }
 
-        public int Divisor
-        {
-            get { return _divisor; }
-        }
+        public int Divisor => _divisor;
 
-        public string Display
-        {
-            get { return _display; }
-        }
+        public string Display => _display;
     }
 }

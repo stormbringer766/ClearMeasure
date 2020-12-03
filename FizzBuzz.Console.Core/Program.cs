@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FizzBuzz.Console.Core
+﻿namespace FizzBuzz.Console.Core
 {
     public static class Program
     {

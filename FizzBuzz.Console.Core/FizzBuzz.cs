@@ -11,13 +11,9 @@ namespace FizzBuzz.Console
 
         public FizzBuzz(FizzBuzzInput fizz, FizzBuzzInput buzz)
         {
-            if (fizz == null)
-                throw new ArgumentNullException("fizz");
-            if (buzz == null)
-                throw new ArgumentNullException("buzz");
+            _fizz = fizz ?? throw new ArgumentNullException(nameof(fizz));
+            _buzz = buzz ?? throw new ArgumentNullException(nameof(buzz));
 
-            _fizz = fizz;
-            _buzz = buzz;
             _commutative = fizz.Divisor*buzz.Divisor;
             _commutativeValue = $"{_fizz.Display}{_buzz.Display}";
         }

@@ -12,16 +12,12 @@ namespace FizzBuzz.Console
         public FizzBuzzProcessor(int start, int end, FizzBuzz fizzBuzz, IFizzBuzzOutput output)
         {
             if (end < start)
-                throw new ArgumentOutOfRangeException("end");
-            if (fizzBuzz == null)
-                throw new ArgumentNullException("fizzBuzz");
-            if (output == null)
-                throw new ArgumentNullException("output");
+                throw new ArgumentOutOfRangeException(nameof(end));
+            _fizzBuzz = fizzBuzz ?? throw new ArgumentNullException(nameof(fizzBuzz));
+            _output = output ?? throw new ArgumentNullException(nameof(output));
 
             _start = start;
             _end = end;
-            _fizzBuzz = fizzBuzz;
-            _output = output;
         }
 
         public void Run()
