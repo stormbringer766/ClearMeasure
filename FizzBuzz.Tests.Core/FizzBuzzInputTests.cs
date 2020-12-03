@@ -1,14 +1,13 @@
 ﻿using System;
 using FizzBuzz.Console;
 using FluentAssertions;
-using NUnit.Framework;
+using Xunit;
 
 namespace FizzBuzz.Tests
 {
-    [TestFixture]
     public class FizzBuzzInputTests
     {
-        [Test]
+        [Fact]
         public void Constructor_Valid_Creates()
         {
             //Arrange
@@ -23,7 +22,7 @@ namespace FizzBuzz.Tests
             actual.Display.Should().Be("display");
         }
 
-        [Test]
+        [Fact]
         public void Constructor_Zero_Throws()
         {
             //Arrange
@@ -34,10 +33,10 @@ namespace FizzBuzz.Tests
             Action actual = () => new FizzBuzzInput(0, "display");
 
             //Assert
-            actual.ShouldThrow<ArgumentOutOfRangeException>();
+            actual.Should().Throw<ArgumentOutOfRangeException>();
         }
 
-        [Test]
+        [Fact]
         public void Constructor_EmptyDisplay_Throws()
         {
             //Arrange
@@ -48,7 +47,7 @@ namespace FizzBuzz.Tests
             Action actual = () => new FizzBuzzInput(1, "");
 
             //Assert
-            actual.ShouldThrow<ArgumentNullException>();
+            actual.Should().Throw<ArgumentNullException>();
         }
     }
 }

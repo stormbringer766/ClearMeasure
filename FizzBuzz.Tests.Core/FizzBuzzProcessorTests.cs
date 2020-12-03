@@ -2,22 +2,20 @@
 using FizzBuzz.Console;
 using FluentAssertions;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 
 namespace FizzBuzz.Tests
 {
-    [TestFixture]
     public class FizzBuzzProcessorTests
     {
         private Mock<IFizzBuzzOutput> _out;
-
-        [SetUp]
-        public void TestInitialize()
+        
+        public FizzBuzzProcessorTests()
         {
             _out = new Mock<IFizzBuzzOutput>();
         }
 
-        [Test]
+        [Fact]
         public void Constructor_Valid_Creates()
         {
             //Arrange
@@ -30,7 +28,7 @@ namespace FizzBuzz.Tests
             actual.Should().NotBeNull();
         }
 
-        [Test]
+        [Fact]
         public void Constructor_EndLessThanStart_Throws()
         {
             //Arrange
@@ -41,11 +39,11 @@ namespace FizzBuzz.Tests
             Action actual = () => new FizzBuzzProcessor(2, 1, SetupFizzBuzz(), _out.Object);
 
             //Assert
-            actual.ShouldThrow<ArgumentOutOfRangeException>()
+            actual.Should().Throw<ArgumentOutOfRangeException>()
                 .And.ParamName.Should().Be("end");
         }
 
-        [Test]
+        [Fact]
         public void Constructor_NullFizzBuzz_Throws()
         {
             //Arrange
@@ -56,11 +54,11 @@ namespace FizzBuzz.Tests
             Action actual = () => new FizzBuzzProcessor(1, 2, null, _out.Object);
 
             //Assert
-            actual.ShouldThrow<ArgumentNullException>()
+            actual.Should().Throw<ArgumentNullException>()
                 .And.ParamName.Should().Be("fizzBuzz");
         }
 
-        [Test]
+        [Fact]
         public void Constructor_NullOuput_Throws()
         {
             //Arrange
@@ -71,11 +69,11 @@ namespace FizzBuzz.Tests
             Action actual = () => new FizzBuzzProcessor(1, 2, SetupFizzBuzz(), null);
 
             //Assert
-            actual.ShouldThrow<ArgumentNullException>()
+            actual.Should().Throw<ArgumentNullException>()
                 .And.ParamName.Should().Be("output");
         }
 
-        [Test]
+        [Fact]
         public void Run_15_DisplayProperResults()
         {
             //Arrange
